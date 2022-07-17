@@ -25,11 +25,4 @@ module Function_.FunctionDemo where
 -- zipD [] _ = []
 -- zipD (x:sx) (y:sy) = [(x,y)]++(zipD sx sy)
 
--- compareWith :: (Num a, Ord a) => a -> Ordering
--- compareWith x = compare 100 x
-
-
--- applyTwice :: (a -> a) -> a -> a
--- applyTwice f x = f (f x)
-
 
