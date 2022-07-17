@@ -1,5 +1,5 @@
 module Main where
-import CurryDemo
+import Curry.CurryDemo as CurryDemo
 
 main :: IO ()
 main = do
