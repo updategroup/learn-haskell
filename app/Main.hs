@@ -28,5 +28,11 @@ main = do
     print(CurryDemo.flipD zip [1,2,3] "tranquoc")
     print(CurryDemo.zipWithD (flipD div) [2,2..] [10,8,6,4])
 
+    print(CurryDemo.mapD (+3) [1,5,3])
+    print(CurryDemo.mapD (++ "!") ["BIG","DOW"])
+    print(CurryDemo.mapD (replicate 3) [1..4])
+    print(CurryDemo.mapD (map (^2)) [[1,2], [3,4,5,6], [7, 8]])
+    print(CurryDemo.mapD fst [(1,2), (3,5), (7,9)])
+
     putStrLn("--------------------End Curry-------------------------")
 

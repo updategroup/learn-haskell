@@ -23,6 +23,10 @@ zipWithD _ [] _ = []
 zipWithD _ _ [] = []
 zipWithD f (x:xs) (y:ys) = f x y : zipWithD f xs ys
 
-flipD :: (a -> b -> c) -> b -> a ->c
+flipD :: (a -> b -> c) -> b -> a -> c
 flipD f y x = f x y
 
+-- MAP
+mapD :: (a -> b) -> [a] -> [b]
+mapD _ [] = []
+mapD f (s: sx) = f s : mapD f sx
