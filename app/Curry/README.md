@@ -9,10 +9,12 @@
 
 # MAP
 - Nhận vào hàm và list rồi áp dụng hàm đó từng phần tử thuộc list cho ra list mới
+<pre>
+    map:: (a -> b) -> [a] -> [b]
+    map _ [] = []
+    map f (x: xs) = f x : map f xs
+</pre>
 <ul>
-    <li>map:: (a -> b) -> [a] -> [b]</li>
-    <li>map _ [] = []</li>
-    <li>map f (x: xs) = f x : map f xs</li>
     <li>map (+3) [1,5,3] = [4,8,6]</li>
     <li>map (++ "!") ["BIFF", "BANG"] = ["BIFF!","BANG!"]</li>
     <li>map (replicate 3) [3..5] = [[3,3,3], [4,4,4], [5,5,5]</li>
@@ -24,10 +26,10 @@
 - Nhận vào điều kiện boolean và list rồi trả về list khi các phần tử trong list thoả mãn điều kiện boolean
 
 <pre>
-filter :: (a -> Bool) -> [a] -> [a]
-filter _ [] = []
-filter p (x:sx)
-    | p x = x : filter p sx
-    | otherwise = filter p sx
+    filter :: (a -> Bool) -> [a] -> [a]
+    filter _ [] = []
+    filter p (x:sx)
+        | p x = x : filter p sx
+        | otherwise = filter p sx
 </pre>
 
