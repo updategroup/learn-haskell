@@ -17,6 +17,17 @@
     <li>map (++ "!") ["BIFF", "BANG"] = ["BIFF!","BANG!"]</li>
     <li>map (replicate 3) [3..5] = [[3,3,3], [4,4,4], [5,5,5]</li>
     <li>map (map (^2)) [[1,2],[3,5]] = [[1,4],[9,25]]</li>
-    <li>map fst [(1,3,(3,5),(4,7)] [1,3,4]</li>
-
+    <li>map fst [(1,3,(3,5),(4,7)] = [1,3,4]</li>
 </ul>
+
+# FILTER
+- Nhận vào điều kiện boolean và list rồi trả về list khi các phần tử trong list thoả mãn điều kiện boolean
+
+<pre>
+filter :: (a -> Bool) -> [a] -> [a]
+filter _ [] = []
+filter p (x:sx)
+    | p x = x : filter p sx
+    | otherwise = filter p sx
+</pre>
+
