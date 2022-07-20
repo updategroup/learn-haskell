@@ -33,7 +33,9 @@ main = do
     print(CurryDemo.mapD (replicate 3) [1..4])
     print(CurryDemo.mapD (map (^2)) [[1,2], [3,4,5,6], [7, 8]])
     print(CurryDemo.mapD fst [(1,2), (3,5), (7,9)])
-    print(CurryDemo.largestDivisible)
+    -- print(CurryDemo.largestDivisible)
+    print(CurryDemo.chain 100)
+    print(CurryDemo.numLongChains)
 
     putStrLn("--------------------End Curry-------------------------")
 

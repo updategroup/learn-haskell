@@ -39,6 +39,9 @@
 <li>takeWhle (/=' ') "love you" = love </li>
 <li>sum (takeWhile (<10) (filter odd (map (^2) [1..]))) = 10</li>
 <li>sum (takeWhile (<10) [n ^ 2 | n <- [1..], odd (n ^ 2)]) = 10 </li>
-
+<li>
+<pre>ghci>let listOfFuns = map (*) [0..]
+ghci> (listOfFuns !! 4) 5 = 20
+</pre>
 </ul>
 
