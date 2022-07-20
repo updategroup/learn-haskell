@@ -32,4 +32,9 @@
         | p x = x : filter p sx
         | otherwise = filter p sx
 </pre>
+<ul>
+<li>filter (>3) [1,3,5,2,8] = [5,8]</li>
+<li>filter (==3) [1,3,5,2] = [3,5]</li>
+<li>filter (`elem` ['a'..'z']) "u La Bcaj"</li>
+</ul>
 

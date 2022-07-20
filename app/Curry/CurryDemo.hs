@@ -29,4 +29,15 @@ flipD f y x = f x y
 -- MAP
 mapD :: (a -> b) -> [a] -> [b]
 mapD _ [] = []
-mapD f (s: sx) = f s : mapD f sx
+mapD f (s:sx) = f s : mapD f sx
+
+-- FILTER
+filterD :: (a -> Bool) -> [a] -> [a]
+filterD _ [] = []
+filterD p (x:sx)
+    | p x = x : filterD p sx
+    | otherwise = filterD p sx
+
+largestDivisible :: (Integral a) => [a]
+largestDivisible = head (filter p [100000,99999..])
+    where p x = x `mod` 3829 == 0    
