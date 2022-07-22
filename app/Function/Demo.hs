@@ -20,6 +20,10 @@ sumD ::  (Num a) => [a] -> a
 sumD [] = 0
 sumD (x:sx) = x + sumD sx
 
+capital :: String -> String
+capital "" = "Emty"
+capital all@(x:sx) = "this is " ++ all ++ " is " ++ [x]
+
 
 -- maxList :: (Ord a ) => [a] -> a
 -- maxList [] = error "OKI-----------------------"
