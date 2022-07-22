@@ -1,6 +1,8 @@
-module Function.FunctionDemo where
+module Function.Demo where
 
-
+lucky :: (Integral a) => a -> String
+lucky 7 = "THIS IS 7"
+lucky x = "NOT 7"
     
 
 -- maxList :: (Ord a ) => [a] -> a
