@@ -24,6 +24,11 @@ capital :: String -> String
 capital "" = "Emty"
 capital all@(x:sx) = "this is " ++ all ++ " is " ++ [x]
 
+bmiTell :: (RealFloat a) => a -> a -> String
+bmiTell w h
+        | w / h ^ 2 <= 18.5 = "Om"
+        | otherwise = "Map"
+
 
 -- maxList :: (Ord a ) => [a] -> a
 -- maxList [] = error "OKI-----------------------"
