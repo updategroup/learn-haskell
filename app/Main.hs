@@ -42,3 +42,7 @@ main = do
 
     putStrLn("--------------------Start Function--------------------")
     print(FunctionDemo.lucky 7)
+    print(FunctionDemo.factorial 4)
+    print(FunctionDemo.headD [1,2,3])
+    print(FunctionDemo.lengthD [1,2,3])
+    print(FunctionDemo.sumD [1,2,3])

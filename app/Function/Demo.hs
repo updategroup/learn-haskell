@@ -3,7 +3,23 @@ module Function.Demo where
 lucky :: (Integral a) => a -> String
 lucky 7 = "THIS IS 7"
 lucky x = "NOT 7"
-    
+
+factorial :: (Integral a) => a -> a
+factorial 0 = 1
+factorial n = n * factorial(n-1)
+
+headD :: [a] -> a
+headD [] = error "Cant call "
+headD (x: _) = x
+
+lengthD :: (Num a) => [a] -> a
+lengthD [] = 0
+lengthD (_: sx) = 1 + lengthD sx
+
+sumD ::  (Num a) => [a] -> a
+sumD [] = 0
+sumD (x:sx) = x + sumD sx
+
 
 -- maxList :: (Ord a ) => [a] -> a
 -- maxList [] = error "OKI-----------------------"
