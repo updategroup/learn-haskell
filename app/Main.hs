@@ -48,3 +48,6 @@ main = do
     print(FunctionDemo.sumD [1,2,3])
     print(FunctionDemo.capital "Dracula")
     print(FunctionDemo.bmiTell 70 1.9)
+    print(FunctionDemo.maxD 1 3)
+    print(FunctionDemo.bmiTellW 50 1.57)
+    print(FunctionDemo.initials "tran" "quoc")

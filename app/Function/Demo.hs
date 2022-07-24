@@ -20,14 +20,49 @@ sumD ::  (Num a) => [a] -> a
 sumD [] = 0
 sumD (x:sx) = x + sumD sx
 
+-- as pattern
 capital :: String -> String
 capital "" = "Emty"
 capital all@(x:sx) = "this is " ++ all ++ " is " ++ [x]
 
+-- guard
 bmiTell :: (RealFloat a) => a -> a -> String
 bmiTell w h
         | w / h ^ 2 <= 18.5 = "Om"
         | otherwise = "Map"
+
+maxD :: (Ord a) => a -> a -> a
+maxD a b
+        | a > b = a
+        | otherwise = b
+
+-- compareD :: (Ord a) => a -> a -> Ordering
+-- a `compareD`wh b
+--         | a > b = GT
+--         | a == b = EQ
+--         | otherwise = LT
+
+-- where
+bmiTellW :: (RealFloat a) => a -> a -> String
+bmiTellW w h
+        | result <= skinny = "Om"
+        | result <= normal = "BT"
+        | otherwise = "Map"
+        where 
+        result = w / h ^ 2
+        skinny = 18.5
+        normal = 25.0
+        -- (skinny, normal) = (18.5, 25.0)
+initials :: String -> String -> String
+initials firt last = [f] ++ " " ++ [l]
+        where
+        (f:_) = firt
+        (l:_) = last      
+
+-- let in          
+        
+
+
 
 
 -- maxList :: (Ord a ) => [a] -> a

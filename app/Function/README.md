@@ -11,4 +11,9 @@ capital all@(x:sx) = "the" ++ all ++ " is " ++ [x]
 </pre>
 # GUARD
 ![plog](/app/Function/image/3-3.png)
-Kiểm tra(boolean) thuộc tính nào đó của 1 hoặc nhiều giá trị trong pattern
+Kiểm tra(boolean) thuộc tính nào đó của 1 hoặc nhiều giá trị trong pattern, guard cơ bản là biểu thức bool nếu true phần thân hàm sẽ dùng đến
+# WHERE
+![plog](/app/Function/image/3-4.png)
+Sau where định nghĩa các biến và hàm, các biến này có hiệu lực cho tất cả các guard
+# LET IN
+![plog](/app/Function/image/3-5.png)
