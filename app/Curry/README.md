@@ -49,6 +49,8 @@ ghci> (listOfFuns !! 4) 5 = 20
 - Nhận vào 1 function và 2 mảng rồi áp dụng function với 2 mảng cho ra mảng mới
 <pre>
 ghci> zipWith (+) [1,2,3] [3,2,1] = [4,4,4]
+ghci> zipWith (**) (replicate 2 5) [1..2] = [5,25]
+ghci> zipWith (\x y -> 2 * x + y) [1..4] [5..8] = [7,10,13,16]
 </pre>
 
 # LAMBDA
