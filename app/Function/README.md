@@ -28,3 +28,5 @@ ghci> let zoot x y z = x * y * z
 ghci> zoot 3 9 2 = 29
 ghci> let boot x y z = x * y * z in boot 3 4 2 = 14
 </pre>
+# CASE EXPRESSION
+![plog](/app/Function/image/3-6.png)

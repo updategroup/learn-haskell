@@ -66,32 +66,47 @@ cylinder r h =
         -- topArea = 8
         in sideArea + 2 * 3
 
+-- case expression
+headC :: [a] -> a
+headC xs = case xs of [] -> error "No head empty"
+                      (x:_) -> x
+
+-- describeList :: [a] -> String
+-- describeList xs = "The List is " ++ case xs of [] -> "Emty"
+--                                                [x] -> "a singeleton list"
+--                                                         xs -> "a long list"                 
+
+describeList :: [a] -> String
+describeList xs = "The List is " ++ what xs
+                where
+                what [] = "emty"
+                what [x] = "singleton list"
+                what xs = "a long list"        
 
 
-
--- maxList :: (Ord a ) => [a] -> a
--- maxList [] = error "OKI-----------------------"
--- maxList [x] = x
--- maxList (x:xs) = max x (maxList xs)
+maxList :: (Ord a ) => [a] -> a
+maxList [] = error "OKI-------------"
+maxList [x] = x
+maxList (x:xs) = max x (maxList xs)
 
 -- replicateD:: (Integral a) => a -> [b] -> [b]
 -- replicateD a b
 --         | a <= 0 = []
 --         | otherwise = [b] ++ replicateD(a-1) b
 
--- takeD :: (Integral a) => a -> [b] -> [b]  
--- takeD k _ 
---     | k <=0 = []
--- takeD _ [] = []
--- takeD k (s:sx) = s : takeD(k-1) sx
+takeD :: (Integral a) => a -> [b] -> [b]  
+takeD k _ 
+    | k <=0 = []
+takeD _ [] = []
+takeD k (s:sx) = s : takeD(k-1) sx
 
--- reverseD :: [a] -> [a]
--- reverseD [] = []
--- reverseD (x:sx) = (reverseD sx) ++ [x]
+reverseD :: [a] -> [a]
+reverseD [] = []
+reverseD (x:sx) = (reverseD sx) ++ [x]
 
--- zipD :: [a] -> [b] -> [(a,b)]
--- zipD _ [] = []
--- zipD [] _ = []
--- zipD (x:sx) (y:sy) = [(x,y)]++(zipD sx sy)
+zipD :: [a] -> [b] -> [(a,b)]
+zipD _ [] = []
+zipD [] _ = []
+zipD (x:sx) (y:sy) = [(x,y)]++(zipD sx sy)
 
 

@@ -45,3 +45,14 @@ ghci> (listOfFuns !! 4) 5 = 20
 </pre>
 </ul>
 
+# ZIPWITH
+- Nhận vào 1 function và 2 mảng rồi áp dụng function với 2 mảng cho ra mảng mới
+<pre>
+ghci> zipWith (+) [1,2,3] [3,2,1] = [4,4,4]
+</pre>
+
+# LAMBDA
+- Khi ta cần hàm đó thực hiện rồi bỏ đi như khắn giấy
+- Mục đích truyền vào hàm bậc cao
+- Sử dụng \ tiếp theo là các tham số sau đó là -> rồi thân hàm và thường bao chúng với cặp ngoặc tròn
+

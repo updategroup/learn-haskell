@@ -1,5 +1,5 @@
 module Main where
-import Curry.CurryDemo as CurryDemo
+import Curry.Demo as CurryDemo
 import Function.Demo as FunctionDemo
 
 main :: IO ()
@@ -35,8 +35,10 @@ main = do
     print(CurryDemo.mapD (map (^2)) [[1,2], [3,4,5,6], [7, 8]])
     print(CurryDemo.mapD fst [(1,2), (3,5), (7,9)])
     -- print(CurryDemo.largestDivisible)
-    print(CurryDemo.chain 100)
+    print(CurryDemo.chain 3)
     print(CurryDemo.numLongChains)
+    print(CurryDemo.tinh)
+
 
     putStrLn("--------------------End Curry-------------------------")
 
@@ -52,3 +54,5 @@ main = do
     print(FunctionDemo.bmiTellW 50 1.57)
     print(FunctionDemo.initials "tran" "quoc")
     print(FunctionDemo.cylinder 3 14)
+    print(FunctionDemo.headC [1,2])
+    print(FunctionDemo.describeList [1,2,3])
