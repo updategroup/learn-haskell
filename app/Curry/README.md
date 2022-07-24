@@ -50,11 +50,29 @@ ghci> (listOfFuns !! 4) 5 = 20
 <pre>
 ghci> zipWith (+) [1,2,3] [3,2,1] = [4,4,4]
 ghci> zipWith (**) (replicate 2 5) [1..2] = [5,25]
-ghci> zipWith (\x y -> 2 * x + y) [1..4] [5..8] = [7,10,13,16]
 </pre>
 
 # LAMBDA
 - Khi ta cần hàm đó thực hiện rồi bỏ đi như khắn giấy
 - Mục đích truyền vào hàm bậc cao
 - Sử dụng \ tiếp theo là các tham số sau đó là -> rồi thân hàm và thường bao chúng với cặp ngoặc tròn
+<pre>
+ghci> zipWith (\x y -> 2 * x + y) [1..4] [5..8] = [7,10,13,16]
+ghic> zipWith (\a b -> (a * 30 + 3) / b) [5,4] [1,2] = [153,61.5]
+ghci> map (\(a,b) -> a + b) [(1,2), (3,5)] = [3,8]
+</pre>
+
+# Foldl
+Hàm fold nhận vào một hàm nhị phân, giá trị khởi tạo và list để fold, hàm nhị phân được truyền vào giá trị và head hoặc last, rồi tạo giá trị khởi tạo mới. Sau đó hàm nhị phân được gọi lại với giá trị khởi tạo head(last mới). Một khi ta duyệt toàn bộ list, thì chỉ còn giá trị ban đầu
+
+# $
+Áp dụng hàm với $ có tinh kết phải
+Trong số trường hợp một hàm đỡ viết ()
+Ngoài ra $ còn mang ý nghĩa áp dụng hàm chính là hàm
+<pre>
+ghci> sum $ map sqrt [1..30]
+ghci> sum $ filter (>10) $ map (*2) [2..10]
+ghci> map ($ 3) [(4+), (10*), (^2), sqrt] = [7,30,9,1.7]
+</pre>
+
 
