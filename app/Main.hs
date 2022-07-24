@@ -51,3 +51,4 @@ main = do
     print(FunctionDemo.maxD 1 3)
     print(FunctionDemo.bmiTellW 50 1.57)
     print(FunctionDemo.initials "tran" "quoc")
+    print(FunctionDemo.cylinder 3 14)

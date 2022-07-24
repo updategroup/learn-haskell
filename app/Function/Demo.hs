@@ -57,10 +57,14 @@ initials :: String -> String -> String
 initials firt last = [f] ++ " " ++ [l]
         where
         (f:_) = firt
-        (l:_) = last      
+        (l:_) = last   
 
 -- let in          
-        
+cylinder :: (RealFloat a) => a -> a -> a
+cylinder r h =
+        let sideArea = 2 * pi * r * h
+        -- topArea = 8
+        in sideArea + 2 * 3
 
 
 
