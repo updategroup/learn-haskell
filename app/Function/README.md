@@ -19,8 +19,12 @@ Cho phép gán giá trị vào biến ở cuối hàm và toàn bộ hàm có th
 ![plog](/app/Function/image/3-5.png)
 let là một biểu thức, local, không thể truy cập từ các guard khác
 <pre>
-ghic> [if 5 > 3 then "wo" else "bo", if 'a'>'b' then 'bo' else 'bar'] = ["wo","bar"]
-ghic> 4*(let a = 9 in a + 1) + 2 = 42
-ghic> [let square x = x * x in (square 5, square 3, square 2)] = (25, 5, 4)]
-ghic> (let (a,b,c) = (1,2,3) in a+b+c) * 100 = 300
+ghci> [if 5 > 3 then "wo" else "bo", if 'a'>'b' then 'bo' else 'bar'] = ["wo","bar"]
+ghci> 4*(let a = 9 in a + 1) + 2 = 42
+ghci> [let square x = x * x in (square 5, square 3, square 2)] = (25, 5, 4)]
+ghci> (let a = 100; b = 200; c = 300 in a * b * c, let fo = "HEY"; bar ="thre" in fo ++ bar )
+ghci> (let (a,b,c) = (1,2,3) in a+b+c) * 100 = 300
+ghci> let zoot x y z = x * y * z
+ghci> zoot 3 9 2 = 29
+ghci> let boot x y z = x * y * z in boot 3 4 2 = 14
 </pre>
