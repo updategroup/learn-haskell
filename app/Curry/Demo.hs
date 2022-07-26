@@ -51,7 +51,3 @@ chain n
 numLongChains :: Int
 numLongChains = length (filter isLong (map chain [1..100]))
     where isLong xs = length xs > 15
-
--- lambda
-numLongChainsL :: Int
-numLongChainsL = length (filter (\sx -> length xs > 15) (map chain [1..100]))

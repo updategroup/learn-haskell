@@ -37,7 +37,6 @@ main = do
     -- print(CurryDemo.largestDivisible)
     print(CurryDemo.chain 3)
     print(CurryDemo.numLongChains)
-    print(CurryDemo.tinh)
 
 
     putStrLn("--------------------End Curry-------------------------")
@@ -56,3 +55,4 @@ main = do
     print(FunctionDemo.cylinder 3 14)
     print(FunctionDemo.headC [1,2])
     print(FunctionDemo.describeList [1,2,3])
+    print(FunctionDemo.sumL [3,5,2,1])
