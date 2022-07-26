@@ -117,3 +117,6 @@ sumL :: (Num a) => [a] -> a
 sumL xs = foldl (\acc x -> acc + x) 0 xs
 -- sumL = foldl (+) 0
 
+elemL :: (Eq a) => a -> [a] -> Bool
+elemL y ys = foldl (\acc x -> if x == y then True else acc) False ys
+

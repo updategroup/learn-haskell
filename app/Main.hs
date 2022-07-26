@@ -56,3 +56,4 @@ main = do
     print(FunctionDemo.headC [1,2])
     print(FunctionDemo.describeList [1,2,3])
     print(FunctionDemo.sumL [3,5,2,1])
+    print(FunctionDemo.elemL 2 [1,3])
