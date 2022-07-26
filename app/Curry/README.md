@@ -62,8 +62,10 @@ ghic> zipWith (\a b -> (a * 30 + 3) / b) [5,4] [1,2] = [153,61.5]
 ghci> map (\(a,b) -> a + b) [(1,2), (3,5)] = [3,8]
 </pre>
 
-# Foldl
-Hàm fold nhận vào một hàm nhị phân, giá trị khởi tạo và list để fold, hàm nhị phân được truyền vào giá trị và head hoặc last, rồi tạo giá trị khởi tạo mới. Sau đó hàm nhị phân được gọi lại với giá trị khởi tạo head(last mới). Một khi ta duyệt toàn bộ list, thì chỉ còn giá trị ban đầu
+# Foldl-Foldr
+* Nguyên nhân
+- Khi ta làm việc với list, ta có điều kiện với list rỗng sau đó xử lý x:xs thao tác head và sx, điều này lặp lại nhiều lần nên ta có hàm với pattern này(fold có cấu trúc như map khác là rút gọn list thành một giá trị duy nhất
+- nHàm fold nhận vào một hàm nhị phân, giá trị khởi tạo và list để fold, hàm nhị phân được truyền vào giá trị và head hoặc last, rồi tạo giá trị khởi tạo mới. Sau đó hàm nhị phân được gọi lại với giá trị khởi tạo head(last mới). Một khi ta duyệt toàn bộ list, thì chỉ còn giá trị ban đầu
 
 # $
 Áp dụng hàm với $ có tinh kết phải
