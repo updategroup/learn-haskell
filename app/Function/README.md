@@ -61,6 +61,9 @@ ghci> sumD [3,5,2,1] = 11
 </pre>
 
 - Foldr
+<pre>
+foldr :: Foldable t => (a -> b -> b) -> b -> t a ->b
+</pre>
 
 # $
 Áp dụng hàm với $ có tinh kết phải

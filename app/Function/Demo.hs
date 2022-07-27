@@ -113,6 +113,7 @@ zipD (x:sx) (y:sy) = [(x,y)]++(zipD sx sy)
 -- numLongChainsL :: Int
 -- numLongChainsL = length (filter (\sx -> length xs > 15) (map chain [1..100]))
 
+-- Foldl Foldr
 sumL :: (Num a) => [a] -> a
 sumL xs = foldl (\acc x -> acc + x) 0 xs
 -- sumL = foldl (+) 0
