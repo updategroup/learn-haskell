@@ -58,11 +58,17 @@ sumD xs = foldl (\acc x -> acc + x) 0 xs = sumD foldl (+) 0
 ghci> sumD [3,5,2,1] = 11
 - (\acc x -> acc + x) = (+)
 - foo a = bar b a => foo = b a
+foldl (^) 2 [1,2,3] = 64
+            ((2 ^ 1)^2)^3 = 64
 </pre>
 
+
 2. Foldr
+- Đi từ phải qua
 <pre>
 foldr :: Foldable t => (a -> b -> b) -> b -> t a ->b
+foldr (^) 2 [1,2,3] = 1
+            1^(2^(3^2)) = 1
 </pre>
 
 # $
