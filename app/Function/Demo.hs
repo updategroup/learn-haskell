@@ -121,5 +121,5 @@ sumL xs = foldl (\acc x -> acc + x) 0 xs
 elemL :: (Eq a) => a -> [a] -> Bool
 elemL y ys = foldl (\acc x -> if x == y then True else acc) False ys
 
-mapL :: (a -> b) -> [a] -> [b] -- mapL (+3) [1,2,3]
-mapL f xs = foldr (\x acc -> f x : acc) [] xs
+mapFR :: (a -> b) -> [a] -> [b] -- mapL (+3) [1,2,3]
+mapFR f xs = foldr (\x acc -> f x : acc) [] xs

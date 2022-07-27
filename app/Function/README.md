@@ -40,7 +40,7 @@ ghci> zipWith (**) (replicate 2 5) [1..2] = [5,25]
 </pre>
 
 # LAMBDA
-- Khi ta cần hàm đó thực hiện rồi bỏ đi như khắn giấy
+- Khi ta cần hàm đó thực hiện rồi bỏ đi như khăn giấy
 - Mục đích truyền vào hàm bậc cao
 - Sử dụng \ tiếp theo là các tham số sau đó là -> rồi thân hàm và thường bao chúng với cặp ngoặc tròn
 <pre>
@@ -69,6 +69,9 @@ foldl (^) 2 [1,2,3] = 64
 foldr :: Foldable t => (a -> b -> b) -> b -> t a ->b
 foldr (^) 2 [1,2,3] = 1
             1^(2^(3^2)) = 1
+map :: (a -> b) -> [a] -> [b]
+map f sx = foldr (\x acc -> f x : acc) [] sx        
+map (+3) [1,2,3] = [4,5,6]        
 </pre>
 
 # $
