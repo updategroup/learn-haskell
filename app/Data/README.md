@@ -40,4 +40,5 @@ ghci> Car {company= "C", model="M", year = 2000} = Ca {company= "C", model="M", 
 
 # TYPE PARAMATER
 ![](/app/Data/image/9-2.png)
- Type constructor nhận vào tham số là kiểu để tạo ra kểu mới
+
+- Type constructor nhận vào tham số là kiểu để tạo ra kểu mới
