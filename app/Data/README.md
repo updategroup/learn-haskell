@@ -21,7 +21,6 @@ ghci> let guy = Person "A" "B" 12
 ghci> firtName guy = "A"
 </pre>
 
-# RECORD
 <pre>
 data Person = Person {
     firtName :: String,
@@ -42,3 +41,18 @@ ghci> Car {company= "C", model="M", year = 2000} = Ca {company= "C", model="M", 
 ![](/app/Data/image/9-2.png)
 
 - Type constructor nhận vào tham số là kiểu để tạo ra kểu mới
+
+<pre>
+data Maybe a = Nothing | Just a
+
+data Car a b c = Car {
+    company :: a,
+    model :: b,
+    year ::c
+} deriving (Show)
+
+tellCar: Car -> String
+tellCar (Car {company = c, model = b, year = c}) = "This " ++ a ++ " " ++ b ++ "in " ++ show c
+ghci> let tang = Car {company = "F", model="M", year=2000}
+ghci> tellCar tang 
+</pre>
