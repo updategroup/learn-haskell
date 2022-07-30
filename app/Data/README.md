@@ -71,5 +71,19 @@ ghci> read c::Person
 - typeclass Bounded (kiểu có biên trên và biên dưới)
 <pre>
 data Day =  Monday | Tuesday | Wednesday | Thursday | Friday | Saturday | Sunday deriving (Eq, Ord, Show, Read, Bounded, Enum)
+ghci> Wednesday
+ghci> show Wednesday = "Wednesday"
+ghci> read "Wednesday"::Day
+ghci> Wednesday == Sunday
+ghci> Wednesday > Sunday
+ghci> minBound :: Day = Monday
+ghci> maxBound :: Day = Sunday
+ghci> succ Monday = Tuesday
+ghci> pred Saturday = Friday
+ghci> [Monday .. Sunday] = [Monday,Tues.....]
+</pre>
+
+<pre>
+type String = [Char]
 </pre>
 
