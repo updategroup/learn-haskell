@@ -44,12 +44,13 @@ data Day = Monday | Tuesday | Wednesday | Thursday | Friday | Saturday | Sunday 
 
 data List t = Nil | t:. List t deriving (Eq, Ord)
 
+-- data Either a b = Left a | Right b deriving (Eq, Ord, Read, Show)
 
 data LockerState = Taken | Free deriving (Show, Eq)
 type Code = String
 type LockerMap = Map.Map Int (LockerState, Code)
 
-lockerLookup :: Int -> LockerMap -> Either ->  String -> Code
+lockerLookup :: Int -> LockerMap -> Either String Code
 lockerLookup lockerNumber map =
     case Map.lookup lockerNumber map of
         Nothing -> Left $ "Locker number " ++ show lockerNumber ++ " doesn't exist!"

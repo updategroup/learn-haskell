@@ -123,3 +123,24 @@ elemL y ys = foldl (\acc x -> if x == y then True else acc) False ys
 
 mapFR :: (a -> b) -> [a] -> [b] -- mapL (+3) [1,2,3]
 mapFR f xs = foldr (\x acc -> f x : acc) [] xs
+
+-- Cấu trúc dữ liệu đệ quy
+-- data List a = Empty | Cons a (List a) deriving (Show, Read, Eq, Ord)
+
+-- data List a = Empty | Cons {
+--         listHead :: a,
+--         listTail :: List a
+-- } deriving (Show, Read, Eq, Ord)
+
+infixr 5 :-:
+data List a = Empty | a :-: (List a) deriving (Show, Read, Eq, Ord)
+
+-- infixr 5 ++
+-- (++) :: [a] -> [a] -> [a]
+-- [] ++ ys = ys
+-- (x:xs) ++ ys = x : (xs ++ ys)
+
+infixr 5 .++
+(.++) :: List a -> List a -> List a
+Empty .++ ys = ys
+(x :-: xs) .++ ys= x :-: (xs .++ ys)
