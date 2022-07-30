@@ -85,5 +85,11 @@ ghci> [Monday .. Sunday] = [Monday,Tues.....]
 
 <pre>
 type String = [Char]
+(type: Đồng kiểu)
 </pre>
+<pre>
+data Either a b = Left a | Right b deriving (Eq, Ord, Show, Read)
+</pre>
+- Có 2 constructor value. Nếu Left được dùng thì nội dung thuộc kiểu a và ngược lại
+- Dùng either gói 2 giá trị có 2 kiểu khác nhau sau đó dùng pattern matching với cả Left lẫn Right
 

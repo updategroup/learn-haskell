@@ -83,3 +83,26 @@ ghci> sum $ map sqrt [1..30]
 ghci> sum $ filter (>10) $ map (*2) [2..10]
 ghci> map ($ 3) [(4+), (10*), (^2), sqrt] = [7,30,9,1.7]
 </pre>
+
+# CẤU TRÚC DỮ LIỆU DỆ QUY
+<pre>
+4:(5:[])=[4,5]
+3:(4:(5:6:[]))=3:4:5:6:[]=[3,4,5,6]
+</pre>
+- : Phép toán này có tính kết phải. Ta nói rằng list có thể là list rỗng hoặc phần tử nối đến list khác
+- khi thực thi
+<pre>
+data List a = Empty | Cons a (List a) deriving (Show, Read, Eq, Ord)
+</pre>
+- Định nghĩa: List là list rỗng hoặc là tổ hợp của head và 1 list khác
+- Biểu diễn record:
+<pre>
+data List a = Empty | Cons {
+    ListHead :: a,
+    ListTail :: List a
+} deriving (Show, Read, Eq, Ord)
+</pre>
+- Cons là cách viết khác của :
+- Trong list, : là constructor nhận vào giá trị cụ thể và list khác trả về list mới. Hay nói gồm 2 trường có kiểu a và [a]
+<pre>
+</pre>

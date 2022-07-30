@@ -1,4 +1,6 @@
 module Data.Demo where
+import Data.Map (Map)
+import qualified Data.Map as Map
 
 data Point = Point Float Float deriving (Show)
 data Shape = Circle Point Float Float | Rectangle Point Point deriving (Show)
@@ -41,3 +43,21 @@ data Person = Person {
 data Day = Monday | Tuesday | Wednesday | Thursday | Friday | Saturday | Sunday deriving (Eq, Ord, Show, Read, Bounded, Enum)
 
 data List t = Nil | t:. List t deriving (Eq, Ord)
+
+
+data LockerState = Taken | Free deriving (Show, Eq)
+type Code = String
+type LockerMap = Map.Map Int (LockerState, Code)
+
+lockerLookup :: Int -> LockerMap -> Either ->  String -> Code
+lockerLookup lockerNumber map =
+    case Map.lookup lockerNumber map of
+        Nothing -> Left $ "Locker number " ++ show lockerNumber ++ " doesn't exist!"
+        Just (state, code) -> if state /= Taken
+                                    then Right code 
+                                    else Left $ "Locker " ++ show lockerNumber ++ " is already taken!"
+
+lockers :: LockerMap
+lockers = Map.fromList [
+    (100, (Taken, "XD123")),
+    (102, (Free, "AVX"))]                  
