@@ -36,6 +36,8 @@ data Person = Person {
     firtName :: String,
     lastName :: String,
     age :: Int
-} deriving Eq
+} deriving (Eq, Show, Read)
 
 data Day = Monday | Tuesday | Wednesday | Thursday | Friday | Saturday | Sunday deriving (Eq, Ord, Show, Read, Bounded, Enum)
+
+data List t = Nil | t:. List t deriving (Eq, Ord)

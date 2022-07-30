@@ -56,3 +56,20 @@ tellCar (Car {company = c, model = b, year = c}) = "This " ++ a ++ " " ++ b ++ "
 ghci> let tang = Car {company = "F", model="M", year=2000}
 ghci> tellCar tang 
 </pre>
+
+<pre>
+data Person = Person {
+    firtName :: String,
+    lastName :: String,
+    age :: Int
+} deriving (Eq, Show, Read)
+ghci> let c = Person {firtName="m",lastName="L",age=12}
+ghci> "object is tring" ++ show c
+ghci> read c::Person
+</pre>
+
+- typeclass Bounded (kiểu có biên trên và biên dưới)
+<pre>
+data Day =  Monday | Tuesday | Wednesday | Thursday | Friday | Saturday | Sunday deriving (Eq, Ord, Show, Read, Bounded, Enum)
+</pre>
+
