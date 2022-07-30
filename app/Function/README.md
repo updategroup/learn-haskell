@@ -118,12 +118,13 @@ data List a = Empty | a :-: (List a) deriving (Show, Read, Eq, Ord)
 </pre>
 <pre>
 ghci>3:-:4:-:5:-:Empty=(:-:) 3 ((:-:) 4 ((:-:) 5 Empty))
+
 infixr 5 .++
 (.++) :: List a -> List a -> List a
 Empty .++ ys = ys
 (x :-: xs ) .++ ys = x :-: (xs .++ ys)
-let a = 3 :-: 4 :-: Empty
-let b = 6 :-: 7 :-: Empty
+ghci> let a = 3 :-: 4 :-: Empty
+ghci> let b = 6 :-: 7 :-: Empty
 ghci> a .++ b = 3:-:(4:-:(6:-:(7:-:Empty)))
 </pre>
 
