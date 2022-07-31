@@ -144,3 +144,31 @@ infixr 5 .++
 (.++) :: List a -> List a -> List a
 Empty .++ ys = ys
 (x :-: xs) .++ ys= x :-: (xs .++ ys)
+
+(?+) :: (Num a) => a -> a -> a
+(?+) a b = a + b
+
+-- class
+
+data TrafficLight = Red | Yellow | Green
+instance Eq TrafficLight where
+    Red == Red = True
+    Green == Green = True
+    Yellow == Yellow = True
+    _ == _ = False
+
+instance Show TrafficLight where
+   show Red = "Red light"
+   show Yellow = "Yellow light"
+   show Green = "Green light"    
+
+-- instance Eq (Maybe m) where
+--    Just x == Just y = y == y
+--    Nothing == Nothing = True
+--    _ == _ = False  
+
+instance (Eq m) => Eq (Maybe m) where
+   Just x == Just y = x == y
+   Nothing == Nothing = True
+   _ == _ = False
+

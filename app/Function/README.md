@@ -123,11 +123,43 @@ infixr 5 .++
 (.++) :: List a -> List a -> List a
 Empty .++ ys = ys
 (x :-: xs ) .++ ys = x :-: (xs .++ ys)
+
+
 ghci> let a = 3 :-: 4 :-: Empty
 ghci> let b = 6 :-: 7 :-: Empty
 ghci> a .++ b = 3:-:(4:-:(6:-:(7:-:Empty)))
 </pre>
 
-
+# Class
 
 <pre>
+* Eq của module
+class Eq a where
+    (==) :: a -> a -> Bool
+    (/=) :: a -> a -> Bool
+    x == y = not (x /= y)
+    x /= y = not (x == y)
+
+* Thể hiện của class Eq
+* instance khiến kiểu tự định nghĩa trở thành thể hiện của typeclass
+data TrafficLight = Red | Green | Yellow 
+instance Eq TrafficLight where
+    Red == Red = True
+    Green == Green = True
+    Yellow == Yellow = True
+    _ == _ = False
+
+
+* Thể hiện của Show
+instance Show TrafficLight where
+    show Red = "Red Light"
+    show Yellow = "Yellow light"
+    show Green = "Green light"
+
+ghci> Red == Red = True
+ghci> Red == Yellow = False
+ghci> Red `elem` [Red, Yellow] = True
+ghci> [Red, Yellow] = [Red light, Yellow light]    
+</pre>
+
+# Yes/ No
