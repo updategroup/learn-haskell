@@ -191,4 +191,5 @@ instance YesNo TrafficLight where
 
 yesnoIf :: (YesNo y) => y -> a -> a -> a
 yesnoIf yesnoVal yesResult noResult = if yesno yesnoVal then yesResult else noResult
+ghci> yesnoIf [1,2,3] "This is list" "Not list" = "This is list"
 </pre>
