@@ -10,6 +10,35 @@ data Point = Point Float Float deriving (Show)
 ghci> surface (Circle (Point 0 0) 24) = 10000
 </pre>
 
+<pre>
+data BookInfo = Book Int String [String]
+                deriving (Show)
+- BookInfo tên kiểu mới, hay là phương thức tạo kiểu
+- Book là phương thức tạo giá trị(phươ thức tạo dữ liệu), tạo một giá trị của kiểu BookInfo   
+myInfo=Book 98 "A" ["A","B"]
+ghci> myInfo=Book 98 ..
+ghci>:t myInfo=myInfo::BookInfo      
+
+type CustomerID=Int
+type ReviewBody=String
+data BetterReview=BetterReview BookInfo CustomerID ReviewBody
+type BookRecord =(BookInfo, BookReview)
+
+type CardHolder=String
+type CardNumber=String
+type Address = [String]
+data BillingInfo = CreditCard CardNumber CardHolder Address
+                    | CashOnDelivery
+                    | Invoice CustomerID
+                    deriving (Show)
+
+bookID (Book id title authors) = id
+bookTitle (Book id tilte authors) = title
+bookAuthors (Book id title authors) = authors
+ghci> bookID (Book 3 "P" ["A","B"])=3
+ghci>:t bookID=bookID::BookInfo->Int
+</pre>
+
 # RECORD SYNTAX
 <pre>
 data = Person = Person String String Int deriving (Show)

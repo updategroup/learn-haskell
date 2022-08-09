@@ -61,4 +61,8 @@ lockerLookup lockerNumber map =
 lockers :: LockerMap
 lockers = Map.fromList [
     (100, (Taken, "XD123")),
-    (102, (Free, "AVX"))]                  
+    (102, (Free, "AVX"))]      
+
+data BookInfor = Book Int String [String]
+                 deriving (Show)
+                 

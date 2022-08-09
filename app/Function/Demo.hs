@@ -1,5 +1,10 @@
 module Function.Demo where
 
+myDrop:: Int -> [a] -> [a]
+myDrop n sx = if n <= 0 || null sx
+              then sx
+              else myDrop(n-1) (tail sx)
+
 lucky :: (Integral a) => a -> String
 lucky 7 = "THIS IS 7"
 lucky x = "NOT 7"
@@ -187,3 +192,25 @@ instance YesNo TrafficLight where
 
 yesnoIf :: (YesNo y) => y -> a -> a -> a
 yesnoIf yesnoVal yesResult noResult = if yesno yesnoVal then yesResult else noResult
+
+
+mySecond :: [a] -> a
+mySecond xs = if null (tail xs)
+              then error "lit null"
+              else head (tail xs)
+
+safeSecond :: [a] -> Maybe a
+safeSecond [] = Nothing
+safeSecond xs = if null (tail xs)
+                then Nothing
+                else Just (head (tail xs))
+
+tidySecond :: [a] -> Maybe a
+tidySecond (_:x:_) = Just x
+tidySecond _ = Nothing
+-- functor
+-- class Functor f where
+--    fmap :: (a -> b) -> f a -> f b
+
+-- instance Functor [] where
+--    fmap = map   
