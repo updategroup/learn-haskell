@@ -62,7 +62,20 @@ initials :: String -> String -> String
 initials firt last = [f] ++ " " ++ [l]
         where
         (f:_) = firt
-        (l:_) = last   
+        (l:_) = last 
+
+lend2 amount balance = if amount < reserve * 0.5
+                       then Just newBalance
+                       else Nothing
+        where 
+        reserve = 100
+        newBalance = balance - amount  
+
+pluralise :: String -> [Int] -> [String]
+pluralise word counts = map plural counts
+        where plural 0 = "no " ++ word ++ "s"
+              plural 1 = "one " ++ word
+              plural n = show n ++ " " ++ word ++ "s"
 
 -- let in          
 cylinder :: (RealFloat a) => a -> a -> a
@@ -70,6 +83,23 @@ cylinder r h =
         let sideArea = 2 * pi * r * h
         -- topArea = 8
         in sideArea + 2 * 3
+
+foo = let a = 1
+      in let b = 2
+        in a+b
+
+bar = let x = 1
+      in ((let x ="foo" in x), x)  
+
+quux = let a = "foo"
+         in a ++ "eek"
+
+lend amount balance = let reserve = 100
+                          newBalance = balance - amount
+                      in if balance < reserve
+                         then Nothing
+                         else Just newBalance      
+
 
 -- case expression
 headC :: [a] -> a
