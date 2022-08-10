@@ -41,6 +41,19 @@ maxD a b
         | a > b = a
         | otherwise = b
 
+len3 amount balance
+        | amount <=0 = Nothing
+        | amount > reserve * 0.5 = Nothing
+        | otherwise = Just newBalance
+        where
+        reserve = 100
+        newBalance = balance - amount    
+
+niceDrop n xs
+        | n <= 0 = xs
+niceDrop _ [] = []
+niceDrop n (_:xs) = niceDrop(n-1) xs        
+
 -- compareD :: (Ord a) => a -> a -> Ordering
 -- a `compareD`wh b
 --         | a > b = GT
@@ -58,6 +71,7 @@ bmiTellW w h
         skinny = 18.5
         normal = 25.0
         -- (skinny, normal) = (18.5, 25.0)
+
 initials :: String -> String -> String
 initials firt last = [f] ++ " " ++ [l]
         where
@@ -106,13 +120,29 @@ headC :: [a] -> a
 headC xs = case xs of [] -> error "No head empty"
                       (x:_) -> x
 
--- describeList :: [a] -> String
--- describeList xs = "The List is " ++ case xs of [] -> "Emty"
---                                                [x] -> "a singeleton list"
---                                                         xs -> "a long list"                 
+fromMaybe :: a -> (Maybe a) -> a
+fromMaybe defval wrapped = 
+        case wrapped of 
+                Nothing -> defval
+                Just value -> value    
+
+data Fruit = Apple | Orange
+-- apple = "apple"
+-- orange = "orange"
+
+wichFruit :: String -> Fruit
+wichFruit f = case f of
+                "apple" -> Apple
+                "orange" -> Orange
 
 describeList :: [a] -> String
-describeList xs = "The List is " ++ what xs
+describeList xs = "The List is " ++ case xs of 
+                                        [] -> "Emty"
+                                        [x] -> "a singeleton list"
+                                        xs -> "a long list"                 
+
+describeListWhere :: [a] -> String
+describeListWhere xs = "The List is " ++ what xs
                 where
                 what [] = "emty"
                 what [x] = "singleton list"

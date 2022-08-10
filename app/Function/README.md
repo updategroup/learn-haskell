@@ -28,6 +28,17 @@ ghci> let zoot x y z = x * y * z
 ghci> zoot 3 9 2 = 29
 ghci> let boot x y z = x * y * z in boot 3 4 2 = 14
 </pre>
+- Bởi vì biểu thức let in là cục bộ nên việc khai báo bên ngoài rồi ápd ụng vô bên trong sẽ không được
+<pre>
+data Fruit = Apple | Orange
+-- apple = "apple"
+-- orange = "orange"
+
+wichFruit :: String -> Fruit
+wichFruit f = case f of
+                "apple" -> Apple
+                "orange" -> Orange
+<pre>
 # CASE EXPRESSION
 ![plog](/app/Function/image/3-6.png)
 
