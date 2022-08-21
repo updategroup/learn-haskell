@@ -20,7 +20,7 @@ Ta có thể định nghĩa lại nó như saus:
 <pre>
     myMap:: (a -> b) -> [a] -> [b]
     myMap _ [] = []
-    myMap f (x: xs) = f x : map f xs
+    myMap f (x: xs) = f x : myMap f xs
 </pre>
 
 # FILTER
