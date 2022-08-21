@@ -9,11 +9,6 @@
 
 # MAP
 - Nhận vào hàm và list rồi áp dụng hàm đó từng phần tử thuộc list cho ra list mới
-<pre>
-    map:: (a -> b) -> [a] -> [b]
-    map _ [] = []
-    map f (x: xs) = f x : map f xs
-</pre>
 <ul>
     <li>map (+3) [1,5,3] = [4,8,6]</li>
     <li>map (++ "!") ["BIFF", "BANG"] = ["BIFF!","BANG!"]</li>
@@ -21,6 +16,12 @@
     <li>map (map (^2)) [[1,2],[3,5]] = [[1,4],[9,25]]</li>
     <li>map fst [(1,3,(3,5),(4,7)] = [1,3,4]</li>
 </ul>
+Ta có thể định nghĩa lại nó như saus:
+<pre>
+    myMap:: (a -> b) -> [a] -> [b]
+    myMap _ [] = []
+    myMap f (x: xs) = f x : map f xs
+</pre>
 
 # FILTER
 - Nhận vào điều kiện boolean và list rồi trả về list khi các phần tử trong list thoả mãn điều kiện boolean

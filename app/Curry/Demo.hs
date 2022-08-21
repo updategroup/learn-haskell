@@ -31,6 +31,7 @@ mapD :: (a -> b) -> [a] -> [b]
 mapD _ [] = []
 mapD f (s:sx) = f s : mapD f sx
 
+
 -- FILTER
 filterD :: (a -> Bool) -> [a] -> [a]
 filterD _ [] = []
