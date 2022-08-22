@@ -62,8 +62,11 @@ ghci> map (\(a,b) -> a + b) [(1,2), (3,5)] = [3,8]
 
 # Foldl-Foldr
 - Khi ta làm việc với list, ta có điều kiện với list rỗng sau đó xử lý x:xs thao tác head và sx, điều này lặp lại nhiều lần nên ta có hàm với pattern này(fold có cấu trúc như map khác là rút gọn list thành một giá trị duy nhất
-1. Foldl: Gọi là fold trái, nó fold list trừ phía trái, hàm được áp dụng giữa giá trị khởi tạo và head, kết quả tạo ra giá trị mới và hàm được gọi lại với giá trị mới và phần tử kế tiếp
+
+1. Foldl: Gọi là fold trái, nó fold list trừ phía trái, hàm được áp dụng giữa giá trị khởi tạo và head, kết quả tạo ra giá trị mới và hàm được gọi lại với giá trị mới và phần tử kế tiếp (Hàm foldl có một hàm bước, một giá trị ban đầu cho bộ tích luỹ của nó và một danh sách. Bước lấy một bộ tích luỹ và một phần tử từ danh sách và trả về một giá trị bộ tích luỹ mới)
+
 <pre>
+foldl :: (a -> b -> a) -> a -> [b] -> a
 sumD :: (Num a) => [a] -> a
 sumD xs = foldl (\acc x -> acc + x) 0 xs = sumD foldl (+) 0
 ghci> sumD [3,5,2,1] = 11
@@ -71,18 +74,36 @@ ghci> sumD [3,5,2,1] = 11
 - foo a = bar b a => foo = b a
 foldl (^) 2 [1,2,3] = 64
             ((2 ^ 1)^2)^3 = 64
+
+niceSum :: [Integer] -> Interger
+niceSum xs = foldl (+) 0 xs
+ghci> niceSum [1,2,3]
+= foldl (+) 0 (1:2:3:[])
+= foldl (+) (0+1) (2:3:[])
+= foldl (+) ((0+1)+2) (3:[])
+= foldl (+) (((0+1)+2)+3) []
+= (((0+1)+2)+3)            
 </pre>
 
 
 2. Foldr
-- Đi từ phải qua
+- Đi từ phải qua và dấu ngoặc đơn sẽ ở bên phải, giá trị tích luỹ phía phải
 <pre>
 foldr :: Foldable t => (a -> b -> b) -> b -> t a ->b
+foldr :: (a -> b -> b) -> b -> [b] -> b
 foldr (^) 2 [1,2,3] = 1
             1^(2^(3^2)) = 1
 map :: (a -> b) -> [a] -> [b]
 map f sx = foldr (\x acc -> f x : acc) [] sx        
-map (+3) [1,2,3] = [4,5,6]        
+map (+3) [1,2,3] = [4,5,6]    
+
+foldr (+) 0 (1:2:3:[])
+= 1 + foldr (+) 0 (2:3:[])
+= 1 + (2 + foldr (+) 0 (3:[]))
+= 1 + (2 + (3 + foldr (+) 0 []))
+= 1 + (2 + (3 + 0))
+
+
 </pre>
 
 # $

@@ -189,6 +189,10 @@ elemL y ys = foldl (\acc x -> if x == y then True else acc) False ys
 mapFR :: (a -> b) -> [a] -> [b] -- mapL (+3) [1,2,3]
 mapFR f xs = foldr (\x acc -> f x : acc) [] xs
 
+myMap :: (a -> b) -> [a] -> [b]
+myMap f xs = foldr step [] xs
+        where step x ys = f x : ys
+
 -- Cấu trúc dữ liệu đệ quy
 -- data List a = Empty | Cons a (List a) deriving (Show, Read, Eq, Ord)
 
