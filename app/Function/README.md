@@ -38,7 +38,7 @@ wichFruit :: String -> Fruit
 wichFruit f = case f of
                 "apple" -> Apple
                 "orange" -> Orange
-<pre>
+</pre>
 # CASE EXPRESSION
 ![plog](/app/Function/image/3-6.png)
 
