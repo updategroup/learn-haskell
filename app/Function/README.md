@@ -60,7 +60,7 @@ ghic> zipWith (\a b -> (a * 30 + 3) / b) [5,4] [1,2] = [153,61.5]
 ghci> map (\(a,b) -> a + b) [(1,2), (3,5)] = [3,8]
 </pre>
 
-# Foldl-Foldr
+# FOLDL
 - Khi ta làm việc với list, ta có điều kiện với list rỗng sau đó xử lý x:xs thao tác head và sx, điều này lặp lại nhiều lần nên ta có hàm với pattern này(fold có cấu trúc như map khác là rút gọn list thành một giá trị duy nhất
 
 1. Foldl: Gọi là fold trái, nó fold list trừ phía trái, hàm được áp dụng giữa giá trị khởi tạo và head, kết quả tạo ra giá trị mới và hàm được gọi lại với giá trị mới và phần tử kế tiếp (Hàm foldl có một hàm bước, một giá trị ban đầu cho bộ tích luỹ của nó và một danh sách. Bước lấy một bộ tích luỹ và một phần tử từ danh sách và trả về một giá trị bộ tích luỹ mới)
@@ -86,7 +86,7 @@ ghci> niceSum [1,2,3]
 </pre>
 
 
-2. Foldr
+#FOLDR
 - Đi từ phải qua và dấu ngoặc đơn sẽ ở bên phải, giá trị tích luỹ phía phải
 <pre>
 foldr :: Foldable t => (a -> b -> b) -> b -> t a ->b
