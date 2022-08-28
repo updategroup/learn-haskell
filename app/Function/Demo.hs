@@ -181,7 +181,7 @@ zipD (x:sx) (y:sy) = [(x,y)]++(zipD sx sy)
 -- Foldl Foldr
 sumL :: (Num a) => [a] -> a
 sumL xs = foldl (\acc x -> acc + x) 0 xs
--- sumL = foldl (+) 0
+-- sumL = foldl (+) 0 xs
 
 elemL :: (Eq a) => a -> [a] -> Bool
 elemL y ys = foldl (\acc x -> if x == y then True else acc) False ys
@@ -192,6 +192,9 @@ mapFR f xs = foldr (\x acc -> f x : acc) [] xs
 myMap :: (a -> b) -> [a] -> [b]
 myMap f xs = foldr step [] xs
         where step x ys = f x : ys
+
+append :: [a] -> [a] -> [a]
+append xs ys = foldr (:) ys xs
 
 -- Cấu trúc dữ liệu đệ quy
 -- data List a = Empty | Cons a (List a) deriving (Show, Read, Eq, Ord)

@@ -103,7 +103,20 @@ foldr (+) 0 (1:2:3:[])
 = 1 + (2 + (3 + foldr (+) 0 []))
 = 1 + (2 + (3 + 0))
 
+myFilter p xs = foldr step [] xs
+   where step x ys | p x = x : ys
+                   | otherwise = ys
 
+Tạo ra bản sao
+identity :: [a] -> [a]      
+identity xs = foldr (:) [] xs         
+ghci> identity [1,2,3] = [1,2,3]      
+
+Nối mảng như
+ghci> [1,2,3] ++ [4,5,6]= [1,2,3,4,5,6]
+append :: [a] -> [a] -> [a]
+append xs ys = foldr (:) ys xs
+ghci> append [1,2,3] [4,5,6] = [1,2,3,4,5,6]
 </pre>
 
 # $
