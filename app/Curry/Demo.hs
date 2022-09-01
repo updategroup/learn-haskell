@@ -10,6 +10,9 @@ compareWithHundred = compare 100
 divideByTen :: (Floating a) => a -> a
 divideByTen = (/10)
 
+subtract1 :: (Num a) => a -> a
+subtract1 = (subtract 4)
+
 isUpperAlphanum :: Char -> Bool
 isUpperAlphanum = (`elem` ['A'..'Z'])
 

@@ -1,11 +1,51 @@
 # Curry
-# MAX
-<ul>
-    <li>ghci> max 4 5</li>
-    <li>=> type: max :: (Ord a) => a -> a -> a</li>
-    <li>ghci>(max 4) 5</li>
-    <li>=> type: max :: (Ord a) => a -> (a -> a)</li>
-</ul>
+Trong haskell hàm chỉ nhận 1 tham số, nếu nhiều hơn ta gọi là curried function
+<pre>
+max :: (Ord a) => a -> a -> a
+tương đương với
+max :: (Ord a) => a -> (a -> a)
+ghci> max 4 5 = (max 4) 5
+</pre>
+Hàm max nhận vào đối tượng kiểu a rồi trả về một hàm. Hàm này cũng nhận đối tượng kiểu a rồi trả về đối tượng cùng kiểu
+<pre>
+multThree :: (Num a) => a -> a -> a ->a 
+multThree x y z = x * y * z
+tương đương với
+multThree :: (Num a) => a -> (a -> (a -> a)) 
+= (Num a) => a -> (a -> a) 
+= (Num a) => a -> a
+
+ghci> let multTwoWithNine = multThree 9
+ghci> multTwoWithNine 2 3
+ghci> let multWithEighteen = multTwoWithNine 2
+ghci> multWithEighteen 10
+
+</pre>
+
+# HIGH FUNCTION
+Hàm có thể nhận hàm khác làm tham số rồi trả về hàm
+<pre>
+applyTwice :: (a -> a) -> a -> a
+applyTwice f x = f (f x)
+
+ghci> applyTwice (+3) 10 = 16
+ghci> applyTwice (++ " HAHA") "HEY" = "HEY HAHA HAHA"
+ghci> applyTwice ("HAHA " ++) "HEY" = "HAHA HAHA HEY"
+ghci> applyTwice (multThree 2 2) 9 = 144
+ghci> applyTwice (3:) [1] = [3,3,1]
+
+zipWith :: (a -> b -> c) -> [a] -> [b] -> [c]
+zipWith _ [] = []
+zipWith [] _ = []
+zipWith f (x:xs) (y:ys) = f x y : zipWith f xs ys
+
+ghci> zipWith (+) [4, 2, 5, 6] [2, 6, 2, 3] = [6, 8, 7, 9]
+ghci> zipWith max [6, 3, 2, 1] [7, 3, 1, 5] = [7, 3, 2, 5]
+ghci> zipWith (++) ["foo ", "bar ", "baz "] ["fighters", "hoppers", "aldrin"] = ["foo fighters", "bar hoppers"]
+ghci> zipWith (*) (replicate 5 2) [1..] = [5, 4, 6, 8, 10]
+
+
+</pre>
 
 # MAP
 - Nhận vào hàm và list rồi áp dụng hàm đó từng phần tử thuộc list cho ra list mới

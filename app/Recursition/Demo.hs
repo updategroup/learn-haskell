@@ -203,3 +203,6 @@ sort1 (x:xs) =
     let small1 = [a | a <- xs, a <= x ]
         big1 = [b | b <- xs, b > x]
     in small1 ++ [x] ++ big1           
+
+divideByTen :: (Floating a) => a -> a
+divideByTen = (10/)    
