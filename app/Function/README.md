@@ -41,6 +41,14 @@ wichFruit f = case f of
 </pre>
 # CASE EXPRESSION
 ![plog](/app/Function/image/3-6.png)
+<pre>
+case expression of pattern -> result
+                   pattern -> result
+
+ head :: [a] -> a
+ head xs = case xs of [] -> error "List not emply"
+                      (x:_) -> x                  
+</pre>
 
 
 # ZIPWITH
