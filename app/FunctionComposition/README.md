@@ -22,4 +22,21 @@ Trường hợp hàm nhận nhiều tham số thì phải áp dụng từng ph�
 ghci> sum (replicate 5 max (6.7 8.9))
 ghci> (sum . replicate 5 . max 6.7) 8.9
 ghci> sum . replicate 5 . max 6.7 $ 8.9
+ghci> replicate 2 (product (map (*3) (zipWith max [1,2,3,4,5] [4,5,6,7,8])))
+ghci> replicate 2 . product . map (*3) . zipWith max [1,2,3,4,5] $ [4,5,6,7,8]
+
+fn x = ceiling (negate (tan (cos (max 50 x))))
+fn = ceiling . negate . tan . cos . max 50
+
+Tính tổng tất cả bình phương nhỏ hơn 10000 của các số lẻ
+
+oddSquareSum :: Integer
+oddSquareSum = sum (takeWhile (<1000) (filter odd (map (^2) [1..])))
+
+oddSquareSum = sum . takeWhile (<1000) . filter odd . map (^2) $ [1..]
+
+oddSquareSum = 
+    let oddSquare = filter odd $ map (^2) [1..]
+        belowLimit = takeWhile (<1000) oddSquare
+    in sum belowLimit     
 </pre>
