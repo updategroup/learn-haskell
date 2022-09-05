@@ -175,7 +175,6 @@ maximum1 (x:sx)
     | otherwise = maxTail
     where maxTail = maximum1 sx
    
-
 -- let in
 cylinder :: (RealFloat a) => a -> a -> a
 cylinder r h = 

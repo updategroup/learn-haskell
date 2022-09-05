@@ -57,6 +57,7 @@ flip :: (a -> b -> c) -> b -> a -> c
 flip f y x = f x y
 
 ghci> flip zip [1, 2] "he" = [("h", 1), ("e", 2)]
+ghci> zipWith (flip div) [2,2..] [10, 8] = [5, 4]
 </pre>
 
 # MAP
