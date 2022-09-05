@@ -18,6 +18,8 @@ ghci> map (negate . sum . tail ) [[1..5],[3..6],[1..7]]
 
 Trường hợp hàm nhận nhiều tham số thì phải áp dụng từng phần mỗi hàm chỉ nhận một tham số
 
+<pre>
 ghci> sum (replicate 5 max (6.7 8.9))
 ghci> (sum . replicate 5 . max 6.7) 8.9
 ghci> sum . replicate 5 . max 6.7 $ 8.9
+</pre>
