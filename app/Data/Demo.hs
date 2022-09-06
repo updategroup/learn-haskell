@@ -2,10 +2,10 @@ module Data.Demo where
 import Data.Map (Map)
 import qualified Data.Map as Map
 
-data Point = Point Float Float deriving (Show)
-data Shape = Circle Point Float Float | Rectangle Point Point deriving (Show)
-surface :: Shape -> Float
-surface (Circle _ _ r) = pi * r ^2 
+-- data Point = Point Float Float deriving (Show)
+-- data Shape = Circle Point Float Float | Rectangle Point Point deriving (Show)
+-- surface :: Shape -> Float
+-- surface (Circle _ _ r) = pi * r ^2 
 
 -- data Person = Person String String Int deriving (Show)
 -- firtName :: Person -> String
