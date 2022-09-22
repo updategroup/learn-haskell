@@ -78,3 +78,35 @@ main = forever $ do
     l <- getLine
     putStrLn $ map toUpper l
 </pre>
+
+<pre>
+import Control.Monad
+
+main = do 
+    colors <- forM [1,2,3,4] (\a -> do
+        putStrLn $ "Which color do you associate with the number " ++ show a ++ "?"
+        color <- getLine
+        return color)
+    putStrLn "The colors that you associate with 1, 2, 3 and 4 are: "
+    mapM putStrLn colors
+</pre>
+
+# FILE
+
+ getContents là một thao tác I/O nhằm đọc vào mọi thứ tự thiết bị đầu vào chuẩn đến khi nó bắt gặp một kí tự kết thúc tập tin. 
+<pre>
+import Control.Monad
+import Data.Char
+
+main = forever $ do
+    putStr "Give me some input: "
+    l <- getLine
+    putStrLn $ map toUpper l
+
+
+import Data.Char
+
+main = do
+    contents <- getContents
+    putStr (map toUpper contents)
+</pre>
