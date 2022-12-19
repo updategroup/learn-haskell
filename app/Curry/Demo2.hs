@@ -13,3 +13,9 @@ flip1 f y x = f x y
 largest :: Integer
 largest = head (filter f [10000,999..])
     where f x = x `mod` 3829 == 0
+
+suml :: (Num a) => [a] -> a
+suml xs = foldl (\acc x -> x + acc) 0 xs 
+
+-- mapl 
+mapl f xs = foldl(\acc x -> f x : acc ) [] xs
