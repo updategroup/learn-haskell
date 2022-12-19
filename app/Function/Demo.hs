@@ -275,9 +275,3 @@ safeSecond xs = if null (tail xs)
 tidySecond :: [a] -> Maybe a
 tidySecond (_:x:_) = Just x
 tidySecond _ = Nothing
--- functor
--- class Functor f where
---    fmap :: (a -> b) -> f a -> f b
-
--- instance Functor [] where
---    fmap = map   
