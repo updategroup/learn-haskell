@@ -51,11 +51,11 @@ age (Person _ _ age _ _ _) = age
 data Person1 = Person1 {
     firtName1 :: String,
     lastName1 :: String,
-    age1 :: Int,
-    height :: Float,
-    phoneNumber :: String,
-    flavor :: String
-} deriving (Show)
+    age1 :: Int
+    -- height :: Float,
+    -- phoneNumber :: String,
+    -- flavor :: String
+} deriving (Show, Eq)
 
 data Car = Car {
     company :: String,
@@ -64,3 +64,39 @@ data Car = Car {
 } deriving (Show)
 
 car = Car{company="Ford", model="Mustang", year=1990}
+
+data Car1 a b c = Car1 {
+    company1 :: a,
+    model1 :: b,
+    year1 :: c
+} deriving (Show)
+
+-- tellCar1 :: Car1 -> String
+tellCar1 (Car1 {company1=c, model1=m, year1=y}) = "This" ++ c ++ " " ++ m ++ " " ++ show y
+
+data IntMaybe = INothing | IJust Int deriving (Show)
+
+mikeD = Person1 {firtName1="M", lastName1="D", age1=43}
+adRock = Person1 {firtName1="A", lastName1="H", age1=41}
+mca = Person1 {firtName1="A", lastName1="Y", age1=44}
+
+data Day = Monday | Tuesday | Wdnesday | Thursday | Friday | Saturday | Sunday deriving(Show, Eq, Enum, Read, Bounded)
+
+-- type String = [Char]
+
+-- phoneBook :: [(String: String)]
+-- phoneBook = [
+--     ("betty", "555"),
+--     ("bonnie", "452")
+-- ]
+
+-- type PhoneBook = [(String, String)]
+-- phoneBook :: (PhoneBook a) => [a]
+
+type PhoneNumber = String
+type Name = String
+type PhoneBook = [(Name, PhoneNumber)]
+
+-- inPhoneBook :: Name -> PhoneNumber -> [(String, String)] -> Bool
+-- inPhoneBook :: Name -> PhoneNumber -> PhoneBook -> Bool
+-- inPhoneBook name pnumber pbook = (name, pnumber) `elem` pbook
