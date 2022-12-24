@@ -41,3 +41,5 @@ filterl1 f xs = foldl(\acc x -> if f x == True then acc ++ [x] else acc) [] xs
 
 lastl1 :: [a] -> a
 lastl1 xs = foldl1(\_ x -> x) xs
+
+b = fo
