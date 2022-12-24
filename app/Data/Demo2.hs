@@ -6,7 +6,7 @@ module Data.Demo2
     Point(..)
 
 ) where 
-import Data.Map (Map)
+import qualified Data.Map as Map
 
 
 
@@ -103,3 +103,22 @@ type PhoneBook = [(Name, PhoneNumber)]
 -- inPhoneBook name pnumber pbook = (name, pnumber) `elem` pbook
 
 -- data Either a b = Left a | right b deriving (Eq, Ord, Read, Show)
+
+data LockerState = Taken | Free deriving(Show, Eq)
+type Code = String
+type LockerMap = Map.Map Int (LockerState, Code)
+
+lockerLookup :: Int -> LockerMap -> Either String Code
+lockerLookup lockerNumber xs = case Map.lookup lockerNumber xs of 
+    Nothing -> Left $ "Locker " ++ show lockerNumber ++ " doesn't exist"
+    Just (state, code) -> if state /= Taken then Right code else Left "already"
+
+
+lockers :: LockerMap
+lockers = Map.fromList 
+    [
+        (100, (Taken, "1")),
+        (101, (Free, "2")),
+        (103, (Taken, "3")),
+        (104, (Taken, "4"))
+    ]
