@@ -111,7 +111,7 @@ type LockerMap = Map.Map Int (LockerState, Code)
 lockerLookup :: Int -> LockerMap -> Either String Code
 lockerLookup lockerNumber xs = case Map.lookup lockerNumber xs of 
     Nothing -> Left $ "Locker " ++ show lockerNumber ++ " doesn't exist"
-    Just (state, code) -> if state /= Taken then Right code else Left "already"
+    Just (state, code) -> if state /= Taken then Right code else Left $ "Locker " ++ show lockerNumber ++ " is already taken"
 
 
 lockers :: LockerMap
@@ -122,3 +122,8 @@ lockers = Map.fromList
         (103, (Taken, "3")),
         (104, (Taken, "4"))
     ]
+
+
+data List a = Empty | Cons a (List a) deriving(Show, Read, Eq, Ord)
+-- data List1 a = Empty | Cons {listHead :: a, listTail :: List1 a} deriving(Show, Read, Eq, Ord)
+
