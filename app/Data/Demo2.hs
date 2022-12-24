@@ -10,7 +10,7 @@ import Data.Map (Map)
 
 
 
-data Bool = False | True
+-- data Bool = False | True
 -- data Int = -214 | -214 | ...  -1 | 0 | 1 | 2 | ... | 214
 data Shape = Circle Float Float Float | Rectangle Float Float Float Float deriving (Show)
 
@@ -74,6 +74,7 @@ data Car1 a b c = Car1 {
 -- tellCar1 :: Car1 -> String
 tellCar1 (Car1 {company1=c, model1=m, year1=y}) = "This" ++ c ++ " " ++ m ++ " " ++ show y
 
+-- data Maybe a = Nothing | Just a
 data IntMaybe = INothing | IJust Int deriving (Show)
 
 mikeD = Person1 {firtName1="M", lastName1="D", age1=43}
@@ -100,3 +101,5 @@ type PhoneBook = [(Name, PhoneNumber)]
 -- inPhoneBook :: Name -> PhoneNumber -> [(String, String)] -> Bool
 -- inPhoneBook :: Name -> PhoneNumber -> PhoneBook -> Bool
 -- inPhoneBook name pnumber pbook = (name, pnumber) `elem` pbook
+
+-- data Either a b = Left a | right b deriving (Eq, Ord, Read, Show)
