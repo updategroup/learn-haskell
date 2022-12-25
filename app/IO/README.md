@@ -1,3 +1,12 @@
+
+- Haskell cũng có hiệu ứng phụ nhưng với việc trao đổi thông tin với bàn phím, màn hình
+- Một hành động IO sẽ được thực hiện khi ta đăt tên cho nó là main và sau đó chạy chương trình
+- do Dùng để kết hợp nhiều hành động I/O thành một
+
+<pre>
+ghc --make Demo1
+./Demo1
+</pre>
 <pre>
 import Data.Char
 
@@ -129,4 +138,6 @@ toTry = do (fileName:_) <- getArgs
 handler :: IOError -> IO ()
 handler e = putStrLn "Whoops, had some trouble!"
 </pre>
+
+
 
