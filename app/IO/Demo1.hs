@@ -19,13 +19,34 @@ import Data.Char
 
 -- let firstName = getLine
 
-main = do
-    line <- getLine
-    if null line
-        then return ()
-        else do
-            putStrLn(reverseWords line)
-            main
+-- main = do
+--     line <- getLine
+--     if null line
+--         then return ()
+--         else do
+--             putStrLn(reverseWords line)
+--             main
 
-reverseWords :: String -> String
-reverseWords xs = unwords (map reverse (words xs))
+-- reverseWords :: String -> String
+-- reverseWords xs = unwords (map reverse (words xs))
+
+
+-- main = do 
+--     return ()
+--     return "HI"
+--     line <- getLine
+--     return "Hi 1---"
+--     return 4
+--     putStrLn(line)
+
+-- main = do
+--     a <- return "Hie"
+--     b <- return "hi 2"
+--     putStrLn(a ++ " " ++ b)
+
+-- hàm trên chẳng có ý nghĩa gì nên dùng let để thay thế
+
+-- main = do
+--     let a = "Hie"
+--         b = "hi 2"
+--     putStrLn(a ++ " " ++ b)
