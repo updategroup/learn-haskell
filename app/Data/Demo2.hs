@@ -175,3 +175,7 @@ instance YesNo TraffictLight where
 
 yesnoIf :: (YesNo y) => y -> a -> a -> a
 yesnoIf v r n = if yesno v then r else n    
+
+
+class Funtor1 f where
+    fmap1 :: (a -> b) -> f a -> f b
