@@ -179,3 +179,14 @@ yesnoIf v r n = if yesno v then r else n
 
 class Funtor1 f where
     fmap1 :: (a -> b) -> f a -> f b
+
+instance Funtor1 [] where
+    fmap1 = map    
+
+instance Funtor1 Maybe where
+    fmap1 f (Just x) = Just (f x)
+    fmap1 f Nothing = Nothing   
+    
+instance Funtor1 (Either a) where
+    fmap1 f (Right x) = Right (f x)
+    fmap1 f (Left x) = Left x
