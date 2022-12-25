@@ -1,11 +1,11 @@
-module Data.Demo2  
-( 
-    area,
-    nudge,
-    Shape(..),
-    Point(..)
+-- module Data.Demo2  
+-- ( 
+--     area,
+--     nudge,
+--     Shape(..),
+--     Point(..)
 
-) where 
+-- ) where 
 import qualified Data.Map as Map
 
 
@@ -127,3 +127,51 @@ lockers = Map.fromList
 data List a = Empty | Cons a (List a) deriving(Show, Read, Eq, Ord)
 -- data List1 a = Empty | Cons {listHead :: a, listTail :: List1 a} deriving(Show, Read, Eq, Ord)
 
+-- class Eq a where
+--     (==) :: a -> a -> Bool
+--     (/=) :: a -> a -> Bool
+--     x == y = not (x /= y)
+--     x /= y = not (x == y)
+
+data TraffictLight = Red | Yellow | Green
+
+instance Eq TraffictLight where
+    Red == Red = True
+    Green == Green = True
+    Yellow == Yellow = True
+    _ == _ = False
+
+instance Show TraffictLight where
+    show Red = "Red light"
+    show Yellow = "Yellow light"
+    show Green = "Green light"   
+    
+-- instance (Eq m) => Eq (Maybe m) where
+--     Just x == Just y = x == y
+--     Nothing == Nothing = True
+--     _ == _ = False    
+
+class YesNo a where
+    yesno :: a -> Bool
+
+instance YesNo Int where
+    yesno 0 = False
+    yesno _ = True
+
+instance YesNo [a] where
+    yesno [] = False
+    yesno _ = True
+    
+instance YesNo Bool where
+    yesno = id    
+
+instance YesNo (Maybe m) where
+    yesno (Just _) = True
+    yesno Nothing = False    
+
+instance YesNo TraffictLight where
+    yesno Red = False
+    yesno _ = True    
+
+yesnoIf :: (YesNo y) => y -> a -> a -> a
+yesnoIf v r n = if yesno v then r else n    
