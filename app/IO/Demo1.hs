@@ -50,3 +50,49 @@ import Data.Char
 --     let a = "Hie"
 --         b = "hi 2"
 --     putStrLn(a ++ " " ++ b)
+
+
+-- when
+
+-- import Control.Monad
+-- main = do
+--     input <- getLine
+--     when (input == "OK") $ do
+--         putStrLn(input)
+
+-- <=>
+
+-- main = do
+--     input <- getLine
+--     if input == "OK" 
+--         then putStrLn(input)
+--         else return ()
+
+
+-- sequence
+
+-- main = do
+--     a <- getLine
+--     b <- getLine
+--     c <- getLine
+--     print [a, b, c]
+
+-- <=>
+
+-- main = do
+--     rs <- sequence [getLine, getLine, getLine]
+--     print rs
+--     let vs = map (++ "x") rs
+--     print vs
+
+
+-- forever
+
+import Control.Monad
+import Data.Char
+
+main = forever $ do
+    putStr("give me some input ")
+    l <- getLine
+    putStrLn(map toUpper l)
+

@@ -44,7 +44,8 @@ main = do
     return 4
     putStrLn line
 </pre>
-
+- When thực hiện một Bool và một hành động I/O. Nếu True nó sẽ trả về hành động IO, False sẽ trả về hành động return () không làm gì cả
+- Ham when sẽ gọn hơn if
 <pre>
 main = do
     c <- getChar
