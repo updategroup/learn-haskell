@@ -5,10 +5,14 @@ import Data.Char
 --     putStr(map toUpper contents)
 
 
-main = do
-    contents <- getContents
-    putStr(shortLinesOnly contents)
+-- main = do
+--     contents <- getContents
+--     putStr(shortLinesOnly contents)
 
+-- or
 
-shortLinesOnly :: String -> String
-shortLinesOnly = unlines . filter(\x -> length x < 10) . lines    
+-- main = interact shortLinesOnly
+
+-- shortLinesOnly :: String -> String
+-- shortLinesOnly = unlines . filter(\x -> length x < 10) . lines    
+

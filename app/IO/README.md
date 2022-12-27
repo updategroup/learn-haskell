@@ -122,6 +122,12 @@ main = do
     putStr (map toUpper contents)
 </pre>
 
+- interact nhận vào một hàm kiểu String -> String làm tham số rồi trả về một thao tác IO để nhận dữ liệu đầu vào, chạy một hàm trên dữ liệu đó rồi in kết quả
+
+<pre>
+main = interact shortLinesOnly
+</pre>
+
 
 # EXCEPTION
 
