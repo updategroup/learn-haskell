@@ -103,7 +103,8 @@ main = do
 
 # FILE
 
- getContents là một thao tác I/O nhằm đọc vào mọi thứ tự thiết bị đầu vào chuẩn đến khi nó bắt gặp một kí tự kết thúc tập tin. 
+- getContents là một thao tác I/O nhằm đọc vào mọi thứ tự thiết bị đầu vào chuẩn đến khi nó bắt gặp một kí tự kết thúc tập tin. 
+- getContents thực hiện IO một cách lười biếng
 <pre>
 import Control.Monad
 import Data.Char
