@@ -145,6 +145,11 @@ hGetContents :: Handle -> IO String
 
 - hGetContents giống hàm getContents nhưng getContents đọc từ bàn phím còn hGetContents đọc đường dẫn file, chùng cùng điểm chung lười biếng, khi ta thật sự dùng đến(nó sẽ không lưu vào bộ nhớ nên sẽ không gây ra tắc nghẽn khi đọc file lớn)
 
+<pre>
+withFile :: FilePath -> IOMode -> (Handle -> IO a) -> IO a
+</pre>
+
+- withFile nhận vào đường dẫn tệp tin, một IOMode, hàm nhận Handle trả về thao tác IO nào đó (\handle -> ...) là hàm nhận handle
 # EXCEPTION
 
 <pre>
