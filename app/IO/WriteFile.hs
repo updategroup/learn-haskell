@@ -6,7 +6,13 @@ import System.IO
 --     putStr(contents)
 --     hClose handle
 
-main = do
-    withFile "girlfriend.txt" ReadMode (\handle -> do
-        contents <- hGetContents handle
-        putStr contents)
+-- main = do
+--     withFile "girlfriend.txt" ReadMode (\handle -> do
+--         contents <- hGetContents handle
+--         putStr contents)
+
+-- or
+
+-- main = do
+--     contents <- readFile "girlfriend.txt"
+--     putStr(contents)

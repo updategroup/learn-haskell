@@ -150,6 +150,18 @@ withFile :: FilePath -> IOMode -> (Handle -> IO a) -> IO a
 </pre>
 
 - withFile nhận vào đường dẫn tệp tin, một IOMode, hàm nhận Handle trả về thao tác IO nào đó (\handle -> ...) là hàm nhận handle
+
+<pre>
+readFile :: FilePath -> IO String
+
+import System.IO
+
+main = do
+    contents <- readFile "path"
+    putStr(contents)
+</pre>
+
+- readFile sẽ gọn hơn là dùng withFile
 # EXCEPTION
 
 <pre>
