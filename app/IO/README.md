@@ -128,6 +128,16 @@ main = do
 main = interact shortLinesOnly
 </pre>
 
+<pre>
+handle <- openFile "path" ReadMode
+
+openFile :: FilePath -> IOMode -> IOHandle
+
+type FilePath = String
+data IOMode = ReadMode | WriteMode | AppendMode | ReadWriteMode
+</pre>
+
+
 
 # EXCEPTION
 
