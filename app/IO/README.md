@@ -137,7 +137,13 @@ type FilePath = String
 data IOMode = ReadMode | WriteMode | AppendMode | ReadWriteMode
 </pre>
 
+<pre>
+contents <- hGetContents handle
 
+hGetContents :: Handle -> IO String
+</pre>
+
+- hGetContents giống hàm getContents nhưng getContents đọc từ bàn phím còn hGetContents đọc đường dẫn file, chùng cùng điểm chung lười biếng, khi ta thật sự dùng đến(nó sẽ không lưu vào bộ nhớ nên sẽ không gây ra tắc nghẽn khi đọc file lớn)
 
 # EXCEPTION
 
