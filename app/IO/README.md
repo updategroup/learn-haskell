@@ -147,6 +147,11 @@ hGetContents :: Handle -> IO String
 
 <pre>
 withFile :: FilePath -> IOMode -> (Handle -> IO a) -> IO a
+
+main = do
+    withFile "path" ReadMode (\handle <- do
+        contents <- hGetContens handle
+        putStr(contents))
 </pre>
 
 - withFile nhận vào đường dẫn tệp tin, một IOMode, hàm nhận Handle trả về thao tác IO nào đó (\handle -> ...) là hàm nhận handle
@@ -162,6 +167,10 @@ main = do
 </pre>
 
 - readFile sẽ gọn hơn là dùng withFile
+
+<pre>
+writeFile :: FilePath -> String -> IO ()
+</pre>
 # EXCEPTION
 
 <pre>

@@ -16,3 +16,8 @@ import System.IO
 -- main = do
 --     contents <- readFile "girlfriend.txt"
 --     putStr(contents)
+
+main = do
+    -- contents <- readFile "g1.txt"
+    -- writeFile "g2.txt" contents
+    appendFile "g1.txt" "xxx nx \n xxxtx"
