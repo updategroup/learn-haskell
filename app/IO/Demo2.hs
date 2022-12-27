@@ -14,5 +14,14 @@ import Data.Char
 -- main = interact shortLinesOnly
 
 -- shortLinesOnly :: String -> String
--- shortLinesOnly = unlines . filter(\x -> length x < 10) . lines    
+-- shortLinesOnly = unlines . filter(\x -> length x < 10) . lines
+
+
+main = interact respondPalindromes
+
+respondPalindromes :: String -> String
+respondPalindromes = unlines . map(\xs -> if isPal xs then "pali" else "not pali") . lines
+
+isPal :: String -> Bool
+isPal xs = xs == reverse xs
 
