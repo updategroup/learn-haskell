@@ -109,3 +109,19 @@ ghci> fmap (replicate 3) Nothing = Nothing
 ghci> fmap (replicate 3) (Lèt "foo") = Left "foo"
 </pre>
 
+# Luật Functor
+
+1. Nếu ta ánh xạ hàm id lên một functor, thì functor mà ta thu được phải giống vơi functor ban đầu
+
+<pre>
+ghci> fmap id (Just 3) = Just 3
+ghci> id (Just 3) = Just 3
+ghci> fmap id [1..5] = [1,2,3,4,5]
+ghci> id [1..3] = [1,2,3]
+ghci> fmap id [] = []
+ghci> fmap id Nothing = Nothing
+
+instance Functor Maybe where
+    fmap f (Just x) = Just (f x)
+    fmap f Nothing = Nothing
+</pre>
