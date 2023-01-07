@@ -133,6 +133,8 @@ data List a = Empty | Cons a (List a) deriving(Show, Read, Eq, Ord)
 --     x == y = not (x /= y)
 --     x /= y = not (x == y)
 
+-- class (Eq a) => Num a where
+
 data TraffictLight = Red | Yellow | Green
 
 instance Eq TraffictLight where
