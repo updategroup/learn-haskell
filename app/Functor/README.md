@@ -3,5 +3,19 @@ class Functor f where
     fmap :: (a -> b) -> f a -> f b
 </pre>
 
-- Danh sách là một phần của lớp kiều Funtor. Lớp này dành cho những thứ có thể được ánh xạ
-- fmap nhận một hàm từ kiểu này sang kiểu khác và một giá trị hàm được áp dụng với một kiểu và trả về giá trị hàm được áp dụng với kiểu khác
+- Danh sách là một phần của lớp kiều Funtor. Lớp này dành cho những thứ có thể được ánh xạ.
+- f là một phương thức khởi tạo kiểu nhận một tham số kiểu.
+- fmap nhận một hàm từ kiểu này sang kiểu khác và một giá trị hàm được áp dụng với một kiểu và trả về giá trị hàm được áp dụng với kiểu khác.
+- fmap chỉ là map
+
+<pre>
+instane Funtor [] where
+    fmap = map
+</pre>
+
+- Không thể la [a] vì a là kiểu cụ thể, nên [] là khởi tạo giá trị
+
+<pre>
+ghci> map (*2) [1..3] = [2,4,6]
+ghci> fmap (*2) [1..3] = [2,4,6]
+</pre>
