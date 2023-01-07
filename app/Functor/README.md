@@ -31,7 +31,15 @@ ghci> fmap (*2) (Just 2) = Just 4
 </pre>
 
 Xem dạng của một kiểu
-:k Int
+:k Int = Int :: *
+- * Nghĩa là kiểu dữ liệu là một kiểu cụ thể
+- Một kiểu cụ thể là kiểu mà nó không nhận bất kỳ tham số kiểu nào và giá trị chỉ có thể có kiểu nằm trong các kiểu cụ thể.
+:k Maybe = Maybe :: * -> *
 Xem thể hiện của class
 :info Maybe
+
+
+- Ta đã có các thực thể như [], Maybe, Either a..., sẽ có thêm 2 thực thể nữa IO và (->) r
+
+# IO hành động như Functors
 
