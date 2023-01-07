@@ -11,11 +11,27 @@ class Functor f where
 <pre>
 instane Funtor [] where
     fmap = map
-</pre>
 
-- Không thể la [a] vì a là kiểu cụ thể, nên [] là khởi tạo giá trị
-
-<pre>
 ghci> map (*2) [1..3] = [2,4,6]
 ghci> fmap (*2) [1..3] = [2,4,6]
 </pre>
+
+- Không thể là [a] vì a là kiểu cụ thể, nên [] là khởi tạo giá trị
+
+# Maybe là một Funtor
+
+<pre>
+instance Funtor Maybe where
+    fmap f (Just x) = Just (f x)
+    fmap f Nothing = Nothing
+
+ghci> fmap (++ " Hey") (Just "Some") = Just "Some Hey"
+ghci> fmap (*2) Nothing = Nothing
+ghci> fmap (*2) (Just 2) = Just 4
+</pre>
+
+Xem dạng của một kiểu
+:k Int
+Xem thể hiện của class
+:info Maybe
+
