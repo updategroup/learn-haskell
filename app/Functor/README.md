@@ -43,3 +43,45 @@ Xem thể hiện của class
 
 # IO hành động như Functors
 
+- Nếu một hành động I/O mà thực hiện nhảy ra môi trường ngoài và lấy cho ta một chuỗi nào đó mà nó trả lại kết quả ta có thể dùng <- trong do để gắn kết quả vào tên gọi
+
+<pre>
+main = do
+    line <- getLine
+    let lines = reverse line
+</pre>
+
+<pre>
+main = do
+    line <- fmap reverse getLine
+</pre>
+
+<pre>
+import Data.Char
+import Data.List
+
+main = do
+    line <- fmap (intersperse "-" . reverse . map toUpper) getLine
+</pre>
+
+# Hàm như Functors (->) r
+
+- Kiểu hàm r -> a có thể được viết thành (->) r a, như 2 + 3 thành (+) 2 3, (r -> a) coi nó là (->) r, (2+) = (+) 2, (->) r = (r ->).
+
+<pre>
+instance Functor ((->) r) where
+    fmap f g = (\x -> f (g x))
+
+fmap :: (a -> b) -> f a -> f b
+fmap :: (a -> b) -> ((->) r a) -> ((->) r b)
+fmap :: (a- > b) -> (r -> a) -> (r -> b)   => Hàm hợp
+
+instance Functor ((->) r) where
+    fmap = (.)
+
+ghci> :t fmap (*3) (+100) = fmap (*3) (+100) :: (Num a) => a -> a
+ghci> fmap (*3) (+100) 1 = 303
+ghci> (*3) `fmap` (+100) $ 1 = 303
+ghci> (*3) . (+100) $ 1 = 303
+ghci> fmap (show . (*3)) (+100) 1 = "303"    
+</pre>
