@@ -98,3 +98,14 @@ fmap :: (a -> b) -> (f a -> f b)
 ghci> :t fmap (*2) = fmap (*2) :: (Num a, Functor f) => f a -> f a
 ghci> :t fmap (replicate 3) = fmap (replicate 3) :: (Functor f) => f a -> f [a]
 </pre>
+
+- Có thể hình dung fmap là một hàm nhận hàm khác và một functor rồi ánh xạ hàm khác đó lên functor, hoặc cũng có thể hình dung nó như một hàm nhận một hàm khác rồi nâng hàm đó lên để nó hoạt động được với các functor.
+
+<pre>
+ghci> fmap (replicate 3) [1,2] = [[1,1], [2,2]]
+ghci> fmap (replicaet 3) (Just 4) = Just [4,4,4]
+ghci> fmap (replicate 3) (Right "bla") = Right ["bla","bla","bla"]
+ghci> fmap (replicate 3) Nothing = Nothing
+ghci> fmap (replicate 3) (Lèt "foo") = Left "foo"
+</pre>
+
