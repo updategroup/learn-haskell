@@ -84,4 +84,17 @@ ghci> fmap (*3) (+100) 1 = 303
 ghci> (*3) `fmap` (+100) $ 1 = 303
 ghci> (*3) . (+100) $ 1 = 303
 ghci> fmap (show . (*3)) (+100) 1 = "303"    
+
+fmap :: (Functor f) => (a -> b) -> f a -> f b
+</pre>
+
+<pre>
+fmap :: (a -> b) -> (f a -> f b)
+</pre>
+
+- fmap không phải là một hàm nhận một hàm khác là một functor rồi trả về functor mới, mà là một hàm nhận vào một hàm rồi trả lại hàm mới gần giống cũ, chỉ khác nó nhận tham số là một functor rồi trả lại kết quả là một functor.
+
+<pre>
+ghci> :t fmap (*2) = fmap (*2) :: (Num a, Functor f) => f a -> f a
+ghci> :t fmap (replicate 3) = fmap (replicate 3) :: (Functor f) => f a -> f [a]
 </pre>
