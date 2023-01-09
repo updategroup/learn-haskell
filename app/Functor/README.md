@@ -2,11 +2,11 @@
 class Functor f where
     fmap :: (a -> b) -> f a -> f b
 </pre>
-
+- Hàm nhận a và trả lại b, cùng một hộp với một hoặc nhiều a bên trong nó rồi tôi sẽ trả lại một hộp với một hoặc nhiều b trong đó. Nó áp dụng hàm vào trong các phần tử bên trong cái hộp.
 - Danh sách là một phần của lớp kiều Funtor. Lớp này dành cho những thứ có thể được ánh xạ.
 - f là một phương thức khởi tạo kiểu nhận một tham số kiểu.
 - fmap nhận một hàm từ kiểu này sang kiểu khác và một giá trị hàm được áp dụng với một kiểu và trả về giá trị hàm được áp dụng với kiểu khác.
-- fmap chỉ là map
+- fmap chỉ là map khi f đó là []
 
 <pre>
 instane Funtor [] where
@@ -74,7 +74,7 @@ instance Functor ((->) r) where
 
 fmap :: (a -> b) -> f a -> f b
 fmap :: (a -> b) -> ((->) r a) -> ((->) r b)
-fmap :: (a- > b) -> (r -> a) -> (r -> b)   => Hàm hợp
+fmap :: (a -> b) -> (r -> a) -> (r -> b)   => Hàm hợp
 
 instance Functor ((->) r) where
     fmap = (.)
@@ -111,6 +111,8 @@ ghci> fmap (replicate 3) (Lèt "foo") = Left "foo"
 
 # Luật Functor
 
+- Có 2 luật
+
 1. Nếu ta ánh xạ hàm id lên một functor, thì functor mà ta thu được phải giống vơi functor ban đầu
 
 <pre>
@@ -124,4 +126,11 @@ ghci> fmap id Nothing = Nothing
 instance Functor Maybe where
     fmap f (Just x) = Just (f x)
     fmap f Nothing = Nothing
+</pre>
+
+2. Hợp hai hàm rồi ánh xạ hàm kết quả lên một functor phải giống như với việc đầu tiền là ánh xạ một hàm lên functor rồi ánh xạ hàm thứ hai.
+
+<pre>
+fmap (f . g) = fmap f . fmap g
+fmap (f . g) F = fmap f (fmap g F)
 </pre>
