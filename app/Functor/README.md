@@ -2,7 +2,7 @@
 class Functor f where
     fmap :: (a -> b) -> f a -> f b
 </pre>
-- Hàm nhận a và trả lại b, cùng một hộp với một hoặc nhiều a bên trong nó rồi tôi sẽ trả lại một hộp với một hoặc nhiều b trong đó. Nó áp dụng hàm vào trong các phần tử bên trong cái hộp.
+- Hàm nhận a và trả lại b, cùng một hộp với một hoặc nhiều a bên trong nó rồi sẽ trả lại một hộp với một hoặc nhiều b trong đó. Nó áp dụng hàm vào trong các phần tử bên trong cái hộp.
 - Danh sách là một phần của lớp kiều Funtor. Lớp này dành cho những thứ có thể được ánh xạ.
 - f là một phương thức khởi tạo kiểu nhận một tham số kiểu.
 - fmap nhận một hàm từ kiểu này sang kiểu khác và một giá trị hàm được áp dụng với một kiểu và trả về giá trị hàm được áp dụng với kiểu khác.
